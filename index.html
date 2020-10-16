@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="accordian">
+      <div id="imgContainer">
+        <img src="images/illustration-woman-online-desktop.svg">
+      </div>
+      <div id="FAQContainer">
+        <h1>FAQ</h1>
+        <div class="selection">
+          <p class="option">How many team members can I invite?</p><img src="images/icon-arrow-down.svg">
+          <p class="description gone">You can invite up to 2 additional users on the Free plan. There is no limit on
+            team members for the Premium plan.</p>
+        </div>
+        <div class="selection">
+          <p class="option">What is the maximum file upload size?</p><img src="images/icon-arrow-down.svg">
+          <p class="description gone">No more than 2GB. All files in your account must fit your allotted storage space.
+          </p>
+        </div>
+        <div class="selection">
+          <p class="option">How do I reset my password?</p><img src="images/icon-arrow-down.svg">
+          <p class="description gone">Click “Forgot password” from the login page or “Change password” from your profile
+            page.
+            A reset link will be emailed to you.</p>
+        </div>
+        <div class="selection">
+          <p class="option">Can I cancel my subscription?</p><img src="images/icon-arrow-down.svg">
+          <p class="description gone">Yes! Send us a message and we’ll process your request no questions asked.</p>
+        </div>
+        <div class="selection">
+          <p class="option">Do you provide additional support?</p><img src="images/icon-arrow-down.svg">
+          <p class="description gone">Chat and email support is available 24/7. Phone lines are open during normal
+            business
+            hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Jordan Edelston</a>.
+  </div>
+
+  <script>
+    const option = document.getElementsByClassName('option');
+    const FAQ = document.getElementById('FAQContainer');
+
+    for (let i = 0; i < option.length; i++) {
+      let element = option[i];
+      element.addEventListener('click', () => {
+        showDescription(element, option);
+      });
+    }
+    for (let i = 0; i < option.length; i++) {
+      let element = option[i];
+      element.addEventListener('mouseover', () => {
+        element.style.color = "hsl(14, 88%, 65%)";
+      });
+      element.addEventListener('mouseout', () => {
+        element.style.color = "hsl(240, 6%, 50%)";
+      });
+    }
+
+
+    function showDescription(element, allTitles) {
+      const selection = element.parentElement;
+      const descriptions = FAQ.getElementsByClassName('description');
+      const desc = selection.getElementsByClassName('description')[0];
+      const opt = element;
+      let images = FAQ.getElementsByTagName('img');
+
+      if (opt.className.includes("active")) {
+
+        opt.classList.remove('active');
+        desc.classList.add('gone');
+
+        for (let i = 0; i < images.length; i++) {
+          let el = images[i];
+          if (el.style.transform == "rotate(180deg)") {
+            el.style.WebkitTransitionDuration = "1s";
+            el.style.webkitTransform = "rotate(-0deg)";
+          }
+        }
+      } else {
+
+        for (let i = 0; i < allTitles.length; i++) {
+          let el = allTitles[i];
+          el.classList.remove('active');
+        }
+
+        for (let i = 0; i < images.length; i++) {
+          let el = images[i];
+          if (el.style.transform === "rotate(180deg)") {
+            el.style.WebkitTransitionDuration = "1s";
+            el.style.webkitTransform = "rotate(-0deg)";
+          }
+        }
+        for (let i = 0; i < descriptions.length; i++) {
+          let el = descriptions[i];
+          el.classList.add('gone');
+        }
+
+        let img = selection.getElementsByTagName('img')[0];
+
+        desc.classList.remove('gone');
+
+        opt.classList.add('active');
+
+        img.style.WebkitTransitionDuration = "1s";
+        img.style.webkitTransform = "rotate(180deg)";
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

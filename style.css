@@ -1,0 +1,139 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+#container {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#accordian {
+    width: 1000px;
+    height: 500px;
+    background-color: white;
+    border-radius: 25px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#imgContainer {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url('images/bg-pattern-desktop.svg');
+    background-size: 957px 1010px;
+    background-position: -565px -330px;
+    background-repeat: no-repeat;
+}
+#FAQContainer {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    padding-top: 50px;
+}
+
+#FAQContainer p {
+    color: hsl(240, 6%, 50%);
+    font-size: 18px;
+}
+#FAQContainer h1 {
+    color: hsl(238, 29%, 16%);
+}
+
+#imgContainer img {
+    position: absolute;
+    left: -110px;
+    top: 63px;
+    width: 500px;
+}
+
+.selection {
+    margin-right: 100px;
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    cursor: pointer;
+}
+
+.selection img {
+    float: right;
+    margin-top: 20px;
+}
+.description {
+    margin: 5px 0;
+    line-height: 24px;
+    animation: height 2s;
+    overflow: hidden;
+}
+.gone {
+    height: 0px;
+    margin: 0;
+}
+.option {
+    display: inline-block;
+}
+
+.active {
+    color: hsl(240, 37%, 45%);
+    font-weight: 700;
+}
+@media only screen and (max-width: 375px) {
+    #accordian {
+        width: 90%;
+        overflow: visible;
+        height: 75%;
+    }
+    #FAQContainer {
+        width: 90%;
+        padding: 5%;
+        overflow: visible;
+        margin-top: 100px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .selection {
+        margin: 0 auto;
+    }
+    #FAQContainer h1 {
+        text-align: center;
+    }
+    #FAQContainer p {
+        font-size: 15px;
+    }
+    .option {
+        padding: 20px 0;
+        margin: 0;
+        font-size: 16px;
+    }
+    #imgContainer {
+        width: 100%;
+        left: 0;
+        right: 0;
+        background-size: 230px 250px;
+        background-position: 50px -150px;
+    }
+    #imgContainer img {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 230px;
+    }
+    #accordian {
+        position: relative;
+        top: 50px;
+    }
+}
