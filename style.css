@@ -95,9 +95,10 @@ body, html {
     }
     #FAQContainer {
         width: 90%;
+        height: inherit;
         padding: 5%;
         overflow: visible;
-        margin-top: 100px;
+        margin-top: 80px;
         overflow-x: hidden;
         overflow-y: scroll;
     }
